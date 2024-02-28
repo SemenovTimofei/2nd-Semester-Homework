@@ -28,6 +28,18 @@
         {
             return false;
         }
+        if (BWT.InverseBWT("nnbaaa", 3) != "banana")
+        {
+            return false;
+        }
+        if (BWT.InverseBWT("aaaa", 0) != "aaaa")
+        {
+            return false;
+        }
+        if (BWT.InverseBWT("a", 0) != "a")
+        {
+            return false;
+        }
 
         return true;
     }

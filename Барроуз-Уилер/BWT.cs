@@ -5,7 +5,6 @@ public class BWT
 {
     public static int CompareShifts(string input, int index1, int index2)
     {
-        // change C# version to use ranges ???
         string shift1 = input.Substring(index1) + input.Substring(0, index1); 
         string shift2 = input.Substring(index2) + input.Substring(0, index2);
 
