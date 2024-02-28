@@ -8,6 +8,12 @@ internal class Program
 {
     static void Main(string[] args)
     {
+        if (!Testing.TestAll())
+        {
+            Console.WriteLine("Testing failed\n");
+            return;
+        }
+
         Console.WriteLine("0 - Exit\n" +
             "1 - Burrows-Wheeler Transformation\n" +
             "2 - Reverse Burrows-Wheeler Transformation\n");
@@ -24,18 +30,19 @@ internal class Program
                 case 1:
                     Console.WriteLine("Enter a string: ");
                     var text = Console.ReadLine();
-                    // var text = "SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES";
 
                     (string result, int index) = BWT.BWTransform(text);
-                    Console.WriteLine("The result: {0}", result);
+                    Console.WriteLine("The result: {0}, {1}", result, index);
                     break;
                 case 2:
                     Console.WriteLine("Enter a string: ");
                     text = Console.ReadLine();
                     Console.WriteLine("Enter position: ");
-                    int position = int.Parse(Console.ReadLine());
+                    int endPosition = int.Parse(Console.ReadLine());
 
-                    Console.WriteLine("The result: {0} {1}", text, position);
+                    string inverseResult = BWT.InverseBWT(text, endPosition);
+
+                    Console.WriteLine("The result: {0}", inverseResult);
                     break;
                 default:
                     Console.WriteLine("Invalid input\n");
